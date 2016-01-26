@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function test1() {
+            alert("11111");
+            sleep(5000);
+            alert("222222");
+        }
+        function sleep(n) {
+            var start = new Date().getTime();
+            while(true)  if(new Date().getTime()-start > n) break;
+        }
+    </script>
+
+</head>
+<body>
+
+<button onclick="test1()">
+    test
+</button>
+
+
+</body>
+</html>

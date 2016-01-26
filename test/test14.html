@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function doalert(){
+            alert(document.getElementById("link").getAttribute("href"));
+            return false;
+        }
+    </script>
+</head>
+<body>
+<a href="http://www.example.com/" id="link" onclick="return doalert()">Link</a>
+</body>
+</html>

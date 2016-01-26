@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../js/jquery-1.11.3.js">
+    </script>
+    <script>
+        var xmlHttp;
+/*
+        jQuery.support.cors = true;
+*/
+        function createxmlHttpRequest() {
+            if (window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else if (window.XMLHttpRequest) {
+                xmlHttp=new XMLHttpRequest();
+            }
+        }
+        function doPost(url,data){
+            createxmlHttpRequest();
+            xmlHttp.open("POST",url);
+            xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlHttp.send(data);
+            xmlHttp.onreadystatechange = function() {
+                if ((xmlHttp.readyState == 4) && (xmlHttp.status == 200)) {
+                    alert('success');
+                } else if ((xmlHttp.readyState == 3)||(xmlHttp.readyState == 2)) {
+                } else {
+                    alert('fail');
+                }
+            }
+        }
+        function test2() {
+            var url = 'http://10.1.22.11:8002/jenkins/view/wd/job/wd/lastBuild/console';
+            var data = '';
+            doPost(url,data);
+        }
+    </script>
+</head>
+<body>
+
+<button id="btn1" onclick="test2()">button</button>
+
+</body>
+</html>
